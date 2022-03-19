@@ -16,13 +16,13 @@ const urlLink = 'portfolio/';
 const createTemplateClone = function (template, element) {
 	element.appendChild(template.content.cloneNode(true));
 };
-function disableContextMenu(element) {
+const disableContextMenu = function (element) {
 	element.oncontextmenu = function (event) {
 		event.preventDefault();
 		event.stopPropagation();
 		return false;
 	};
-}
+};
 
 const displayPagination = function () {
 	const templateButtonElement = document.querySelector('#slider-pagination-item');
@@ -83,14 +83,14 @@ const changeButtonPagination = function () {
 	arrayPaginationButtons[active].classList.add('slider__pagination-btn--active');
 };
 
-function getPositionX(event) {
+const getPositionX = function (event) {
 	return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-}
+};
 
-function touchStart() {
+const touchStart = function () {
 	isDragging = true;
 	startPosition = getPositionX(event);
-}
+};
 
 const touchEnd = function () {
 	isDragging = false;
