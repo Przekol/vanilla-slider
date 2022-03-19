@@ -17,7 +17,7 @@
 	cursor: pointer;
 
 	&-const {
-		padding: 0 1.15em;
+		padding: calc(var(--spacing) * 0.25) calc(var(--spacing) * 0.75);
 		min-width: 64px;
 		height: 36px;
 		color: $color-btn-const-font;
@@ -26,13 +26,10 @@
 	}
 	&--outlined {
 		border: 1px solid $color-btn-const-outlined;
-		
 	}
 
 	&--contained {
 		color: $color-btn-const-font-contained;
 		background-color: $color-btn-const-bg;
 	}
-
-
 }

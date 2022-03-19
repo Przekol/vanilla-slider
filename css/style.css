@@ -173,7 +173,6 @@ a,
 a:visited,
 a:hover {
   text-decoration: none;
-  color: inherit;
 }
 
 .container {
@@ -207,7 +206,7 @@ a:hover {
   cursor: pointer;
 }
 .btn-const {
-  padding: 0 1.15em;
+  padding: calc(var(--spacing) * 0.25) calc(var(--spacing) * 0.75);
   min-width: 64px;
   height: 36px;
   color: var(--shade-700);
@@ -256,14 +255,14 @@ a:hover {
 }
 .slider__container .slide__link {
   position: absolute;
-  bottom: 10%;
+  bottom: 50px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 .slider__pagination {
   position: absolute;
-  bottom: 1%;
+  bottom: 10px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);

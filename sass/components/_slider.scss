@@ -32,7 +32,7 @@
 
 			&__link {
 				position: absolute;
-				bottom: 10%;
+				bottom: 50px;
 				left: 50%;
 				transform: translate(-50%, -50%);
 			}
@@ -40,7 +40,7 @@
 	}
 	&__pagination {
 		position: absolute;
-		bottom: 1%;
+		bottom: 10px;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		text-align: center;
