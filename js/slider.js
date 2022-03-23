@@ -2,6 +2,7 @@ import slidesList from './dataSlidesList.js';
 
 const slide = document.querySelector('.slide');
 const paginationList = document.querySelector('.slider__pagination');
+const buttonsNavigation = document.querySelector('.slider__button');
 const numberSlides = slidesList.length;
 
 const time = 3000;
@@ -10,8 +11,8 @@ let isDragging = false;
 let startPosition, resultPosition;
 let indexInterval;
 
-const urlImg = 'images/header/';
-const urlLink = 'portfolio/';
+const urlImg = 'images/';
+const urlLink = '';
 
 const createTemplateClone = function (template, element) {
 	element.appendChild(template.content.cloneNode(true));
@@ -94,7 +95,7 @@ const touchStart = function () {
 
 const touchEnd = function () {
 	isDragging = false;
-	manualChangeSlide();
+	manualChangeSlide(resultPosition > 100, resultPosition < -100);
 };
 const touchMove = function (event) {
 	if (isDragging) {
@@ -102,10 +103,10 @@ const touchMove = function (event) {
 		resultPosition = currentPosition - startPosition;
 	}
 };
-const manualChangeSlide = function () {
-	if (resultPosition > 100 || resultPosition < -100) {
+const manualChangeSlide = function (prev, next) {
+	if (prev || next) {
 		clearInterval(indexInterval);
-		resultPosition > 100 ? active-- : active++;
+		prev ? active-- : active++;
 		if (active == slidesList.length) {
 			active = 0;
 		} else if (active < 0) {
@@ -133,6 +134,12 @@ const initSlider = function () {
 	slide.addEventListener('mousedown', touchStart);
 	slide.addEventListener('mouseup', touchEnd);
 	slide.addEventListener('mousemove', touchMove);
+	buttonsNavigation.addEventListener('click', e => {
+		manualChangeSlide(e.target.className === 'slider__button-prev', e.target.className === 'slider__button-next');
+	});
+	window.addEventListener("keydown", (e) => {
+		manualChangeSlide(e.key === 'ArrowLeft', e.key === 'ArrowRight');
+	})
 };
 
 export default initSlider;
